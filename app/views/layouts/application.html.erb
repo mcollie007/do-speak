@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DoSpeak</title>
+  <link rel="stylesheet" href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div class="header">
+      <h1>ToDoodle</h1>
+    </div>
+    <div class="container">
+      <div class="main">
+        <!--<div class="list">-->
+  
+          <%= yield %>
+          
+        <!--</div>-->
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
+
+
+  <script src="https://s3.amazonaws.com/codecademy-content/projects/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/1.4.0/annyang.min.js"></script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>

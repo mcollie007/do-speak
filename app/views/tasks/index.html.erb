@@ -1,0 +1,34 @@
+<h1 style="margin-left:30px;">Tasks</h1>
+<!-- <form class="form">
+        <div class="form-container">
+          <input id="todo" type="text" class="form-input" placeholder="Add item">
+        </div>
+        <button type="submit" class="btn">+</button>
+      </form>-->
+
+<div class="form">
+  <%= form_for(@task) do |x| %>
+    <div class=" form-container">
+    <%= x.text_field :item, :placeholder => "New item", class: "form-input", :id => "todo" %>
+    <%= x.submit '+', class: "btn" %>
+    </div>
+  <% end %>
+</div>
+<div class="voice-text alert alert-info"></div>
+  <br>
+  <div class="list">
+ <% @tasks.each do |task| %>
+        <p id="task-<%= task.id %>" data-task-id="<%= task.id %>" data-task-status="<%= task.done %>">
+          <input type="checkbox" id="status">
+          <% if task.done == true %>
+            <i class="glyphicon glyphicon-star active"></i>
+          <% else %>
+            <i class="glyphicon glyphicon-star"></i>
+          <% end %>
+          <span><%= link_to task.item, task %></span>
+          <!--<i class="glyphicon glyphicon-remove"></i>-->
+          <%= link_to "", task, method: :delete, class: "glyphicon glyphicon-remove", data: { confirm: 'Are you sure?' } %>
+        </p>
+  <% end %>
+</div>
+<%#= link_to 'New Task', new_task_path , style: "margin-left:30px; "%>

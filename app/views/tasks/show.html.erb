@@ -1,0 +1,63 @@
+<h1 style="margin-left:30px;">Details</h1>
+<div class="voice-text alert alert-info"></div>
+<div class="list">
+
+<p id="notice"><%#= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+   <% if @task.done == true %>
+      <i id="task-<%=@task.id%>" class="glyphicon glyphicon-star active"></i>
+    <% else %>
+      <i id="task-<%=@task.id%>" class="glyphicon glyphicon-star"></i>
+    <% end %> 
+    <strong>Date: </strong><%= @task.updated_at.strftime('%a %d, %b %Y') %>
+</p>
+<p id="task">
+  
+  <strong>Item:</strong>
+  <a href="#" id="edit-task" data-toggle="tooltip" data-placement="top" title="Click to edit text"><%= @task.item %></a>
+
+   
+
+</p>
+
+  <form class="form edit_task" id="task-form">
+        <div class="form-container">
+          <input id="todo-task" type="text" class="form-input" placeholder="<%= @task.item %>">
+        </div>
+        <button type="submit" class="btn"><i class="glyphicon glyphicon-ok"></i></button>
+  </form>
+
+
+<p id="note" data-note-id="<%= @task.id %>">
+  <strong>Note:</strong>
+  <% if @task.note != "" %>
+      <a href="#" id="edit-note" data-toggle="tooltip" data-placement="top" title="Click to edit text"><%= @task.note %></a>
+  <% else %>
+      <a href="#" id="edit-note" data-toggle="tooltip" data-placement="right" title="Click to edit text">Edit</a>
+  <% end %>
+</p>
+  <form class="form edit_task" id="note-form">
+        <div class="form-container">
+          <input id="todo-note" type="text" class="form-input" placeholder="<%= @task.note %>">
+        </div>
+        <button type="submit" class="btn"><i class="glyphicon glyphicon-ok"></i></button>
+  </form>
+<!--
+<p>
+  <strong>Done:</strong>
+  <%#= @task.done %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%#= @task.time %>
+</p> -->
+<p>
+<%#= link_to 'Edit', edit_task_path(@task) %> 
+<%= link_to 'Back', tasks_path %></p>
+</div>
+
+
+
