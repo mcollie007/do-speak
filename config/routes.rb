@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #    get :demo
   #  end
  # end
-  get 'help/index' => 'help#index'
+  get 'help' => 'help#index'
   root 'tasks#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
